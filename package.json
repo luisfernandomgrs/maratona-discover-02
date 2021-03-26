@@ -1,0 +1,27 @@
+{
+  "name": "maratona-discover-02",
+  "version": "1.0.0",
+  "description": "Freelancer Calculator",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisfernandomgrs/maratona-discover-02.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisfernandomgrs/maratona-discover-02/issues"
+  },
+  "homepage": "https://github.com/luisfernandomgrs/maratona-discover-02#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
