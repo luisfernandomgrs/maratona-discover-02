@@ -42,10 +42,10 @@ input {
   font-family: IBM Plex Sans;
   font-weight: 500;
 
-  background: #FCFDFF;
+  background: #fcfdff;
 
-  border: 1px solid #E1E3E6;
-  border-radius: .313rem;
+  border: 1px solid #e1e3e6;
+  border-radius: 0.313rem;
 
   padding: 0.75rem 1.5rem;
 
@@ -55,5 +55,9 @@ input {
 }
 
 ::placeholder {
-  color: #BFBFCC;
+  color: #bfbfcc;
+}
+
+.input-wrapper {
+  width: 50%;
 }
