@@ -13,6 +13,24 @@ This installation method is required for users on ARM and BSD. You must have nod
 npm install -g heroku
 ```
 
+## Removes previous heroku
+
+```cmd
+git remote rm heroku
+```
+
+## Sets git remote heroku to https://example-example.git
+
+```cmd
+git remote add heroku git:remote -a nlw4-calcjob
+```
+
+basicamente foi o seguinte:
+no package.json coloquei: "start": "node src/server.js",
+e no serve.js: var porta = process.env.PORT || 8080; e isso server.listen(porta, () => console.log('rodando'));
+
+# 🚀
+
 ## Install the Heroku CLI
 
 (Após a instalação no WSL2... )

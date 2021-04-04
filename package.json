@@ -4,6 +4,7 @@
   "description": "Freelancer Calculator",
   "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon ."
   },
   "repository": {
