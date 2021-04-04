@@ -13,6 +13,20 @@ This installation method is required for users on ARM and BSD. You must have nod
 npm install -g heroku
 ```
 
+# Verify your version
+
+```cmd
+heroku --version
+```
+
+# Make your login into account
+
+```cmd
+ heroku login
+```
+
+a external window in your browser has to show... Make your loggin and return to terminal console...
+
 ## Removes previous heroku
 
 ```cmd
@@ -28,6 +42,15 @@ git remote add heroku git:remote -a nlw4-calcjob
 basicamente foi o seguinte:
 no package.json coloquei: "start": "node src/server.js",
 e no serve.js: var porta = process.env.PORT || 8080; e isso server.listen(porta, () => console.log('rodando'));
+
+# 🔥 My commands to push into Heroku
+
+- git add .
+- git commit -m "message"
+- git push heroku master
+
+This push, send only Heroku...
+To send for GitHub, make you command usual...
 
 # 🚀
 
