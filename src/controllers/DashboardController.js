@@ -33,7 +33,7 @@ module.exports = {
         // horas livres, considerando trabalhos encerrados..
         // const freeHours = profile["hours-per-day"] - jobTotalHours;
         profile["free-hours"] = Number(profile["hours-per-day"] - jobTotalHours).toFixed(2);
-        profile["free-hours-msg"] = (profile["free-hours"] <= 0) ? "Você não possui horas livres" : `Você tem ${profile["free-hours"]} horas livres no seu dia`;
+        profile["free-hours-msg"] = (profile["free-hours"] <= 0) ? "Você não possui horas livres" : `Você tem ${Number(profile["free-hours"]).toFixed()} horas livres no seu dia`;
 
         // return res.render("index", {jobs: updatedJobs, profile: Profile.data});
         // return res.render("index", {jobs: updatedJobs, profile: profile, statusCount: statusCount, freeHours: freeHours});
