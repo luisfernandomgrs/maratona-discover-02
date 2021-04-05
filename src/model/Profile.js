@@ -5,7 +5,9 @@ let data = {
     "days-per-week": 1,
     "hours-per-day": 5,
     "vacation-per-year": 4,
-    "value-hour": 75
+    "value-hour": 75,
+    "free-hours": 0,     //field added by Luis Fernando...
+    "free-hours-msg": ""
 };
 
 module.exports = {

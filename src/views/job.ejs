@@ -21,7 +21,6 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    
   </head>
   <body id="page-job">
     <%- include('parts/page-header', { title: 'Adicionar Novo Job'}) %>
@@ -30,7 +29,8 @@
       <main>
         <form id="form-job"
           method="POST"
-          action="/job">
+          action="/job"
+        >
 
           <fieldset>
             <legend>Dados do Job</legend>
@@ -39,9 +39,11 @@
             <div class="input-wrapper">
               <label for="name">Nome do Job</label>
               <input 
-                type="text" 
+                type="text"                 
                 id="name" 
-                name="name" />
+                name="name"
+                required
+              />
             </div>
 
             <div class="input-group">
@@ -49,10 +51,17 @@
                 <label for="daily-hours">Quantas horas <br/>
                   por dia vai dedicar ao job?</label>
                 <input 
-                  type="number"
-                  step="0.1" 
+                  type="number"                  
                   id="daily-hours" 
-                  name="daily-hours"/>
+                  name="daily-hours"
+                  step="<%= profile["free-hours"] <= 0 ? 0 : 0.1 %>" 
+                  min="<%= profile["free-hours"] <= 0 ? 0 : 0.1 %>"
+                  max= "<%= profile["free-hours"] %>"
+                  required
+                />
+                <label>
+                    <%= profile["free-hours-msg"] %>
+                </label>
               </div>
 
               <div class="input-wrapper">
@@ -61,7 +70,10 @@
                 <input 
                   type="number"
                   id="total-hours" 
-                  name="total-hours" />
+                  name="total-hours"
+                  required
+                />
+
               </div>
             </div>
           </fieldset>

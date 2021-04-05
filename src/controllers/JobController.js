@@ -5,7 +5,8 @@ const JobUtils = require("../utils/JobUtils");
 module.exports = {
 
     create (req, res) {
-        return res.render("job")
+        // return res.render("job", { freeHours: Profile.get()["free-hours"] })
+        return res.render("job", { profile: Profile.get() });
     },
 
     save (req, res) {
@@ -20,16 +21,18 @@ module.exports = {
         // ...que em caso do default ser nulo, retorne outro valor. Neste caso zero (0)
         // Dá-se o nome de Logical OR Operator ao uso de "||"
 
-        const jobs = Job.get();
-        const lastId = jobs[jobs.length - 1]?.id || 0;
-    
-        jobs.push({
-            id: lastId + 1,
-            name: req.body.name,
-            "daily-hours": req.body["daily-hours"],
-            "total-hours": req.body["total-hours"],
-            created_at: Date.now()
-        })
+        if (req.body["daily-hours"] > 0) {
+            const jobs = Job.get();
+            const lastId = jobs[jobs.length - 1]?.id || 0;
+        
+            jobs.push({
+                id: lastId + 1,
+                name: req.body.name,
+                "daily-hours": req.body["daily-hours"],
+                "total-hours": req.body["total-hours"],
+                created_at: Date.now()
+            })
+        }
     
         return res.redirect("/");
     },
@@ -46,9 +49,10 @@ module.exports = {
             return res.send("job not found")
         };
 
-        job.budget = JobUtils.calculateBudget(job, profile["value-hour"])
+        job.budget = JobUtils.calculateBudget(job, profile["value-hour"])        
 
-        return res.render("job-edit", { job });
+        // return res.render("job-edit", { job, freeHours: Profile.get()["free-hours"] });
+        return res.render("job-edit", { job, profile: profile });
     },
 
     update (req, res) {

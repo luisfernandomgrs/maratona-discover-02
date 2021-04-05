@@ -44,6 +44,7 @@
                 type="text" 
                 id="name" 
                 name="name"
+                required
                 value="<%= job.name %> "
               />
             </div>
@@ -54,10 +55,16 @@
                   por dia vai dedicar ao job?</label>
                 <input 
                   type="number"
-                  step="0.1" 
                   id="daily-hours" 
                   name="daily-hours"
+                  step="0.1" 
+                  min="0.1"
+                  max= "<%= profile["free-hours"] <= 0 ? job["daily-hours"] : Number(job["daily-hours"]) +  Number(profile["free-hours"]) %>"
+                  required
                   value="<%= job["daily-hours"] %>"/>
+                <label>
+                    <%= profile["free-hours-msg"] %>
+                </label>
               </div>
 
               <div class="input-wrapper">
@@ -67,7 +74,8 @@
                   type="number"
                   id="total-hours" 
                   name="total-hours"
-                  value="<%= job["total-hours"] %>" />
+                  required
+                  value="<%= job["total-hours"] %>"/>
               </div>
             </div>
           </fieldset>

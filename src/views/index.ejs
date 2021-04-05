@@ -32,11 +32,7 @@
           <img id="logo" src="/images/logo.svg" alt="Logo" />
           <span id="notification">
             <img src="/images/alert-octagon.svg" alt="Alerta" />
-            <% if(freeHours <= 0) { %>
-              Você não possui horas livres
-            <% } else { %>
-              Você tem <%= freeHours %>  horas livres no seu dia
-            <% } %>
+            <%= profile["free-hours-msg"] %>
           </span>
           <a href="/profile" id="avatar-profile">
             <p><%= profile.name %>  <span>Ver perfil</span></p>
