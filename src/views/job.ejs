@@ -21,6 +21,8 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <script type="module" src="/scripts/job-keyevents.js"></script>
   </head>
   <body id="page-job">
     <%- include('parts/page-header', { title: 'Adicionar Novo Job'}) %>
@@ -59,7 +61,7 @@
                   max= "<%= profile["free-hours"] %>"
                   required
                 />
-                <label>
+                <label id="profile-free-hours-msg">
                     <%= profile["free-hours-msg"] %>
                 </label>
               </div>

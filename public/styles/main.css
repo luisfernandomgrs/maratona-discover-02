@@ -7,56 +7,55 @@
 
 /* custom vars */
 :root {
-  --color-background: #F0F2F5;
-  --color-text: #FCFDFF;
+  --color-background: #f0f2f5;
+  --color-text: #fcfdff;
 
-  --color-primary: #41414C;
-  --color-secondary: #F1972C;
-  --color-secondary-hover: #FA9C2D;
-  
-  --color-input-background: #F8F8FC;
-  --color-button-text: #FFFFFF;
-  --color-hairline-in-dark: #4F4F5B;
-  --color-hairline-in-light: #E1E3E5;
+  --color-primary: #41414c;
+  --color-secondary: #f1972c;
+  --color-secondary-hover: #fa9c2d;
+
+  --color-input-background: #f8f8fc;
+  --color-button-text: #ffffff;
+  --color-hairline-in-dark: #4f4f5b;
+  --color-hairline-in-light: #e1e3e5;
 
   --color-card-background: var(--color-text);
-  --color-card-title: #5A5A66;
-  --color-card-label: #BFBFCC;
+  --color-card-title: #5a5a66;
+  --color-card-label: #bfbfcc;
   --color-card-content: #787880;
 
-  --color-cancel: #E1E3E5;
-  --color-delete: #EB3B35; 
-  --color-save: #36B336;
-  
+  --color-cancel: #e1e3e5;
+  --color-delete: #eb3b35;
+  --color-save: #36b336;
+
   --color-badge-progress-text: var(--color-save);
-  --color-badge-progress-background: #E8F8E8;
+  --color-badge-progress-background: #e8f8e8;
   --color-badge-done-text: var(--color-delete);
-  --color-badge-done-background:#FAECEB;
+  --color-badge-done-background: #faeceb;
 
-  --color-header-inner-title: var(--color-card-label)
-
+  --color-header-inner-title: var(--color-card-label);
 }
 
 /* user-agent font-size is 16px, let's make it responsive */
-@media(max-width: 1080px) {
+@media (max-width: 1080px) {
   html {
     font-size: 93.75%; /* 15px */
   }
 }
 
-@media(max-width: 970px) {
+@media (max-width: 970px) {
   html {
     font-size: 87.5%; /* 14px */
   }
 }
 
-@media(max-width:700px) {
+@media (max-width: 700px) {
   :root {
     font-size: 75%; /* 12px */
   }
 }
 
-@media(max-width: 590px) {
+@media (max-width: 590px) {
   :root {
     font-size: 62.25%; /* 10px */
   }
@@ -105,7 +104,7 @@ a {
 }
 
 .separator.light {
-  background-color: #E1E3E5;
+  background-color: #e1e3e5;
 }
 
 .flex {
