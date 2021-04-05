@@ -24,7 +24,7 @@
     />
 
     <script type="module" src="/scripts/job-edit.js"></script>
-    
+    <script type="module" src="/scripts/job-keyevents.js"></script>    
   </head>
   <body id="page-job-edit">
     <%- include('parts/page-header', { title: 'Editar Job'}) %>
@@ -62,7 +62,7 @@
                   max= "<%= profile["free-hours"] <= 0 ? job["daily-hours"] : Number(job["daily-hours"]) +  Number(profile["free-hours"]) %>"
                   required
                   value="<%= job["daily-hours"] %>"/>
-                <label>
+                <label id="profile-free-hours-msg">
                     <%= profile["free-hours-msg"] %>
                 </label>
               </div>
