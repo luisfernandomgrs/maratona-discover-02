@@ -24,7 +24,7 @@ module.exports = {
         if (req.body["daily-hours"] > 0) {
             const jobs = Job.get();
             const lastId = jobs[jobs.length - 1]?.id || 0;
-        
+            
             jobs.push({
                 id: lastId + 1,
                 name: req.body.name,
@@ -86,7 +86,8 @@ module.exports = {
 
         Job.update(newJobs);
 
-        res.redirect("/job/" + jobId);
+        // res.redirect("/job/" + jobId);
+        res.redirect("/");
     },
 
     delete (req, res) {

@@ -1,41 +1,36 @@
+let fieldDailyHours = document.getElementById("daily-hours");
+let oldValueDailyHours = 0;
 
-let myTextbox = document.getElementById("daily-hours");
-let nValueAfter = 0;
-
-window.onkeyup = function (event) {
-    if (event.keyCode == 27) {
-        window.history.go(-1);
-    }
-};
-
-myTextbox.addEventListener("keydown", () => {
-    nValueAfter = myTextbox.value;
+fieldDailyHours.addEventListener("keydown", () => {
+    oldValueDailyHours = fieldDailyHours.value;
 })
 
-myTextbox.addEventListener("keyup", (evt) => {
+fieldDailyHours.addEventListener("keyup", (evt) => {
 
-    if (Number(myTextbox.value) > myTextbox.max) {
-        myTextbox.value = nValueAfter;
+    if (Number(fieldDailyHours.value) > fieldDailyHours.max) {
+        fieldDailyHours.value = oldValueDailyHours;
         displayWarning("Não há horas disponíveis...");
     }
 })
 
 let warningTimeout;
 let warningBox = document.createElement("label");
-warningBox.className = "warning";
+warningBox.className = "flex";
 
 function displayWarning(msg) {
     let hideMessageDefault = document.getElementById("profile-free-hours-msg");
 
     warningBox.innerHTML = msg;
     warningBox.style.color = "var(--color-delete)";
-    warningBox.style.overflow = "hidden";
+    warningBox.style.position = "absolute";
+    warningBox.style.top = hideMessageDefault.style.top;
+    warningBox.style.left = hideMessageDefault.style.left;
 
     if (document.body.contains(warningBox)) {
         window.clearTimeout(warningTimeout);        
     } else {
-        // insert warningBox after myTextbox
-        myTextbox.parentNode.insertBefore(warningBox, myTextbox.nextSibling);
+        // insert warningBox after fieldDailyHours
+        fieldDailyHours.parentNode.insertBefore(warningBox, fieldDailyHours.nextSibling);
         hideMessageDefault.style.visibility = "hidden";
     }
 
