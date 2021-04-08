@@ -1,20 +1,54 @@
-let data = {
-    name: "Luis Fernando",
-    avatar: "https://avatars.githubusercontent.com/u/72364037?v=4",
-    "monthly-budget": 3000,
-    "days-per-week": 1,
-    "hours-per-day": 5,
-    "vacation-per-year": 4,
-    "value-hour": 75,
-    "free-hours": 0,     //field added by Luis Fernando...
-    "free-hours-msg": ""
+const Database = require("../db/config");
+
+const FreeHours = {
+    value: 3,
+    Message() {
+        let sMessage;
+
+        if (FreeHours.value <= 0) { sMessage = "Você não possui disponilidade para novos trabalhos!"; }
+        else if (FreeHours.value == 1) { sMessage = "Você possui apenas uma hora livre no seu dia."}
+        else if (FreeHours.value > 1) { sMessage = `Você tem ${Number(FreeHours.value)} horas livres no seu dia` }
+
+        return sMessage;
+    }
 };
 
 module.exports = {
-    get() {
-        return data;
+    async get() {
+        const db = await Database();
+
+        // get... Retorna apenas um registro; 
+        // run... Retorna toda a lista...
+
+        const data = await db.get("SELECT * FROM profile");
+        db.close();
+
+        return {
+            "name": data.name,
+            avatar: data.avatar,
+            "monthly-budget": data.monthly_budget,
+            "days-per-week": data.days_per_week,
+            "hours-per-day": data.hours_per_day,
+            "vacation-per-year": data.vacation_per_year,
+            "value-hour": data.value_hour,
+            "free-hours" : FreeHours
+        };
     },
-    update(newData) {
-        data = newData;
+
+    async update(newData) {
+
+        const db = await Database();
+        
+        db.run(`UPDATE profile SET 
+            name = "${newData.name}",
+            avatar = "${newData.avatar}",
+            monthly_budget = ${newData["monthly-budget"]},
+            days_per_week = ${newData["days-per-week"]},
+            hours_per_day = ${newData["hours-per-day"]},
+            vacation_per_year = ${newData["vacation-per-year"]},
+            value_hour = ${newData["value-hour"]}
+        `);
+
+        await db.close();
     }
-}
+};

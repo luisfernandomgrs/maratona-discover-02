@@ -34,7 +34,7 @@
         <h2><%= profile.name %> </h2>
         <p>
           O valor da sua hora é <br/>
-          <strong><%= profile["value-hour"].toFixed(2).replace(".", ",") %></strong>
+          <strong>R$ <%= profile["value-hour"].toFixed(2).replace(".",",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.") %></strong>
         </p>
         <button class="button green" form="form-profile" type="submit">Salvar dados</button>
       </aside>

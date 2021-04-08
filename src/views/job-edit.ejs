@@ -58,13 +58,13 @@
                   type="number"
                   id="daily-hours" 
                   name="daily-hours"
-                  step="0.1" 
-                  min="0.1"
-                  max= "<%= profile["free-hours"] <= 0 ? job["daily-hours"] : Number(job["daily-hours"]) +  Number(profile["free-hours"]) %>"
+                  step="1" 
+                  min="1"
+                  max= "<%= profile["free-hours"].value <= 0 ? job["daily-hours"] : Number(job["daily-hours"]) +  Number(profile["free-hours"].value) %>"
                   required
                   value="<%= job["daily-hours"] %>"/>
                 <label id="profile-free-hours-msg">
-                    <%= profile["free-hours-msg"] %>
+                    <%= profile["free-hours"].Message() %>
                 </label>
               </div>
 

@@ -32,7 +32,7 @@
           <img id="logo" src="/images/logo.svg" alt="Logo" />
           <span id="notification">
             <img src="/images/alert-octagon.svg" alt="Alerta" />
-            <%= profile["free-hours-msg"] %>
+            <%= profile["free-hours"].Message() %>
           </span>
           <a href="/profile" id="avatar-profile">
             <p><%= profile.name %>  <span>Ver perfil</span></p>
@@ -92,7 +92,7 @@
               </div>
               <div class="amount column">
                 <span>Valor</span>
-                <p>R$ <%= job.budget.toFixed(2).replace(".",",") %></p>
+                <p>R$ <%= job.budget.toFixed(2).replace(".",",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.") %></p>
               </div>
               <div class="status badge column">
                 <%= job.status === "done" ? "Encerrado" : "Em andamento" %> 

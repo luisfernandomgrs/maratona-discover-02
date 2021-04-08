@@ -3,10 +3,10 @@ const JobUtils = require("../utils/JobUtils");
 const Profile = require("../model/Profile");
 
 module.exports = {
-    index(req, res) {
+    async index(req, res) {
 
-        const jobs = Job.get();
-        const profile = Profile.get();
+        const jobs = await Job.get();
+        const profile = await Profile.get();
         let statusCount = {
             progress: 0,
             done: 0,
@@ -30,10 +30,11 @@ module.exports = {
             };
         });
 
-        // horas livres, considerando trabalhos encerrados..
-        // const freeHours = profile["hours-per-day"] - jobTotalHours;
-        profile["free-hours"] = Number(profile["hours-per-day"] - jobTotalHours).toFixed(2);
-        profile["free-hours-msg"] = (profile["free-hours"] <= 0) ? "Você não possui horas livres" : `Você tem ${Number(profile["free-hours"]).toFixed()} horas livres no seu dia`;
+        // profile["free-hours"] = Number(profile["hours-per-day"] - jobTotalHours); //.toFixed(2);
+        profile["free-hours"].value = Number(profile["hours-per-day"] - jobTotalHours); //.toFixed(2);
+
+        // profile["free-hours-msg"] = (profile["free-hours"] <= 0) ? "Você não possui horas livres" : `Você tem ${Number(profile["free-hours"])} horas livres no seu dia`;
+        // profile["free-hours"].message = (profile["free-hours"].value <= 0) ? "Você não possui horas livres" : `Você tem ${Number(profile["free-hours"].value)} horas livres no seu dia`;
 
         // return res.render("index", {jobs: updatedJobs, profile: Profile.data});
         // return res.render("index", {jobs: updatedJobs, profile: profile, statusCount: statusCount, freeHours: freeHours});

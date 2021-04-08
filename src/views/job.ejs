@@ -57,13 +57,13 @@
                   type="number"                  
                   id="daily-hours" 
                   name="daily-hours"
-                  step="<%= profile["free-hours"] <= 0 ? 0 : 0.1 %>" 
-                  min="<%= profile["free-hours"] <= 0 ? 0 : 0.1 %>"
-                  max= "<%= profile["free-hours"] %>"
+                  step="<%= profile["free-hours"].value <= 0 ? 0 : 1 %>" 
+                  min="<%= profile["free-hours"].value <= 0 ? 0 : 1 %>"
+                  max= "<%= profile["free-hours"].value %>"
                   required
                 />
                 <label id="profile-free-hours-msg">
-                    <%= profile["free-hours-msg"] %>
+                    <%= profile["free-hours"].Message() %>
                 </label>
               </div>
 
@@ -74,6 +74,8 @@
                   type="number"
                   id="total-hours" 
                   name="total-hours"
+                  min="1"
+                  value="1"
                   required
                 />
 
