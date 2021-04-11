@@ -74,6 +74,11 @@ main {
 label .check-dark-mode {
   position: absolute;
   cursor: pointer;
+  height: 30px;
+  width: 30px;
+  background-color: var(--color-secondary);
+  border: 1px var(--color-border) solid;
+  border-radius: 100%;
 }
 
 label span {
