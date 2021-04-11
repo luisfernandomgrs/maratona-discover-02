@@ -2,6 +2,14 @@
   <img alt="JobsCalc" title="JobsCalc" src="https://i.imgur.com/Veqm7Gh.png" width="220px" />
 </h1>
 
+# Latest Release
+
+# 🛰️
+
+Implementado o uso do tema Dark-Mode...
+Pode testar a aplicação neste link: https://nlw4-calcjob.herokuapp.com/
+
+
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
