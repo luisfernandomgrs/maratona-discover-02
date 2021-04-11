@@ -58,14 +58,14 @@
 
 #avatar-profile p span:hover {
   text-decoration: underline;
-  color:var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 #avatar-profile img {
   width: 4rem; /* 64px of 16px root*/
   height: 4rem; /* 64px of 16px root*/
   border-radius: 50%;
-  border: 0.156rem solid #F1972C; /* 2.5px of 16px root*/
+  border: 0.156rem solid #f1972c; /* 2.5px of 16px root*/
 }
 
 /* 
@@ -83,7 +83,7 @@
  * summary info
 /* -------------------------------------------------- */
 #summary .info {
-  display:flex;
+  display: flex;
   font-family: Inter;
 
   margin-bottom: 2rem;
@@ -93,17 +93,16 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.625rem;
-  
+
   margin-right: 2.5rem; /* 40px of 16px root*/
 }
 
 .info > div > strong {
   display: block;
-  
+
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.625rem; /* 26px of 16px root*/
-  
 }
 
 /* 
@@ -117,7 +116,7 @@
 #summary .button span::before {
   width: 2rem;
   height: 2rem;
-  content: " "; 
+  content: " ";
   background-color: var(--color-background);
   opacity: 0.16;
   border-radius: 0.313rem; /* 5px of 16px root*/
@@ -148,7 +147,6 @@ main {
   margin-top: -2.825rem;
 }
 
-
 /* 
  * CARD
 /* -------------------------------------------------- */
@@ -157,37 +155,43 @@ main {
   grid-template-columns: 5% 35% 20% 15% 15% 10%;
   align-items: center;
 
-  margin-bottom:  0.5rem;
+  margin-bottom: 0.5rem;
 
   position: relative;
 
   transition: all 0.2s;
+
+  /* my code */
+  /* border-color: var(--color-border); */
 }
 
 .card:hover {
-  background: 
-  linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
-    white;
+  background: linear-gradient(
+      90deg,
+      rgba(250, 156, 45, 0.1) 0.45%,
+      rgba(252, 253, 255, 0.1) 31.4%
+    ),
+    var(--color-card-background);
 }
 
 .card::before {
-  content: ' ';
-  
-  width: .25rem;
-  height: 0%;
-  background-color: var(--color-secondary);
+  content: " ";
 
-  border-radius: .313rem 0 0 .313rem;
+  width: 0.25rem;
+  height: 0%;
+  background-color: var(--color-border-hover);
+
+  border-radius: 0.313rem 0 0 0.313rem;
 
   position: absolute;
   top: 0;
   left: -1px;
 
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .card:hover::before {
-  height:100%;
+  height: 100%;
 }
 
 .card .column:last-child {
@@ -195,7 +199,7 @@ main {
 }
 
 .card .column > span {
-  display:block;
+  display: block;
 
   font-family: Inter;
   font-weight: 600;
@@ -227,31 +231,30 @@ main {
   height: 1.5rem;
 }
 
-@media(max-width:1390px) {
+@media (max-width: 1390px) {
   .card {
     grid-template-columns: 5% 30% 20% 15% 17.25% 12.25%;
   }
 }
 
-@media(max-width:970px) {
+@media (max-width: 970px) {
   .card {
     grid-template-columns: 31% 23% 13% 20.25% 12.25%;
   }
-  
+
   .column.id {
     display: none;
   }
 }
 
-@media(max-width:770px) {
+@media (max-width: 770px) {
   .card {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    "lt rt"
-    "lm rm"
-    "lb rb"
-    ;
-    gap: .5rem;
+    grid-template-areas:
+      "lt rt"
+      "lm rm"
+      "lb rb";
+    gap: 0.5rem;
   }
 
   .column.id {
@@ -271,7 +274,7 @@ main {
     justify-self: end;
     grid-area: rt;
   }
-  .column.actions{
+  .column.actions {
     grid-area: rb;
   }
 }

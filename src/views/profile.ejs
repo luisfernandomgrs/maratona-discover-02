@@ -22,12 +22,12 @@
       rel="stylesheet"
     />
 
-    <script type="module" src="/scripts/main.js"></script>    
+    <script type="module" src="/scripts/main.js"></script>
+    <script type="module" src="scripts/profile.js"></script>
   </head>
   <body id="page-profile">
-
     <%- include('parts/page-header', { title: 'Meu Perfil'}) %>
-
+    
     <div class="container animate-up delay-2">
       <aside class="card">
         <img src="<%= profile.avatar %>" alt="<%= profile.name %>">
@@ -45,6 +45,17 @@
           action="/profile">
           <fieldset>
             <legend>Dados do perfil</legend>
+
+            <div class="container-dark-mode">
+              <label for="input-check-dark-mode" id="label-check-dark-mode" class="check-dark-mode" >
+                <span></span>
+              </label>
+              <input type="checkbox" id="input-check-dark-mode" class="input-check-dark-mode" name="dark-mode"
+                <% if (profile["dark-mode"]) { %> checked <% } %>
+              />
+            </div>
+
+
             <div class="separator light"></div>
 
             <div class="input-group">
@@ -122,11 +133,24 @@
               </div>
             </div>
           </fieldset>
-    
         </form>
       </main>
     </div>
     <!-- end container -->
+    <script>
+
+      const ThemeDarkMode = document.querySelector(".input-check-dark-mode");
+      const elementBody = document.body;
+
+      if(ThemeDarkMode.checked) {
+        elementBody.classList.toggle("dark-mode");
+
+        document.getElementById("label-check-dark-mode").style.marginLeft = "35px";
+      }
+      else {
+        document.getElementById("label-check-dark-mode").style.marginLeft = "0px";
+      }
+    </script>
   </body>
 </html>
  

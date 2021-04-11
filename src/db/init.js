@@ -13,7 +13,8 @@ const initDb = {
             days_per_week INT,
             hours_per_day INT,
             vacation_per_year INT,
-            value_hour INT
+            value_hour INT,
+            dark_mode INT
         )`);
 
         await db.exec(`CREATE TABLE jobs (
@@ -26,8 +27,8 @@ const initDb = {
 
         const iInit_hours_per_day = 5;
 
-        await db.run(`INSERT INTO profile (name,avatar,monthly_budget,days_per_week,hours_per_day,vacation_per_year,value_hour)
-            VALUES ("Luis Fernando","https://avatars.githubusercontent.com/u/72364037?v=4",3000,1,${iInit_hours_per_day},4,55);`);
+        await db.run(`INSERT INTO profile (name,avatar,monthly_budget,days_per_week,hours_per_day,vacation_per_year,value_hour,dark_mode)
+            VALUES ("Luis Fernando","https://avatars.githubusercontent.com/u/72364037?v=4",3000,1,${iInit_hours_per_day},4,55,0);`);
 
         await db.run(`INSERT INTO jobs (name,daily_hours,total_hours,created_at) VALUES ("Pizzaria Guloso",2,1,1617514376018);`);
         await db.run(`INSERT INTO jobs (name,daily_hours,total_hours,created_at) VALUES ("OneTwo Project",3,47,1617514376018);`);

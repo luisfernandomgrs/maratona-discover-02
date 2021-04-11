@@ -6,8 +6,8 @@ aside.card {
   background: var(--color-card-background);
   color: var(--color-card-title);
 
-  border: 1px solid #E1E3E6;
-  border-radius: .313rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.313rem;
 
   width: 22rem;
 
@@ -21,7 +21,7 @@ aside.card {
 aside img {
   border-radius: 50%;
 
-  border: .25rem var(--color-secondary) solid;
+  border: 0.25rem var(--color-secondary) solid;
 
   width: 11.25rem;
   height: 11.25rem;
@@ -34,7 +34,6 @@ aside h2 {
   font-weight: 600;
   font-size: 1.75rem;
   line-height: 1.875rem;
-
 
   margin-bottom: 3.875rem;
 }
@@ -50,4 +49,38 @@ aside p {
 
 main {
   flex: 1;
+}
+
+.input-check-dark-mode {
+  display: none;
+}
+
+.container-dark-mode {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 40px;
+  width: 75px;
+  padding: 6px;
+  border-radius: 20px;
+  /* display: block; */
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1);
+}
+
+label .check-dark-mode {
+  position: absolute;
+  cursor: pointer;
+}
+
+label span {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-color: var(--color-secondary);
+  border: 1px var(--color-border) solid;
+  border-radius: 100%;
 }

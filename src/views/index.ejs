@@ -21,10 +21,10 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <script src="scripts/index.js" defer type="module"></script>
+</script>
   </head>
-  <body id="page-index">
+  <body id="page-index" class="<% if (profile["dark-mode"]) { %> dark-mode <% } %>">
     <header class="page-header">
       <div class="container">
         <section id="top" class="animate-up">
@@ -38,13 +38,14 @@
             <p><%= profile.name %>  <span>Ver perfil</span></p>
             <img src="<%= profile.avatar %> "/>
           </a>
+          
         </section>
-
+        
         <div class="separator"></div>
-
+        
         <section id="summary" class="animate-up delay-1">
           <h2 class="sr-only">Sumário</h2>
-
+          
           <div class="info">
             <div class="total">
               <strong><%= statusCount.total %> </strong>
@@ -69,7 +70,7 @@
       </div>
     </header>
 
-    <div class="container">
+    <div class="container <% if (profile["dark-mode"]) { %> dark-mode <% } %> ">
       <main class="animate-up delay-2">
         <h1 class="sr-only">Trabalhos</h1>
 

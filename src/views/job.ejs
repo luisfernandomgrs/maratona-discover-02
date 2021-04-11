@@ -25,7 +25,7 @@
     <script type="module" src="/scripts/main.js"></script>
     <script type="module" src="/scripts/job-keyevents.js"></script>
   </head>
-  <body id="page-job">
+  <body id="page-job" class="<% if (profile["dark-mode"]) { %> dark-mode <% } %>">
     <%- include('parts/page-header', { title: 'Adicionar Novo Job'}) %>
 
     <div class="container flex animate-up delay-2">

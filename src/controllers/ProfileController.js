@@ -23,6 +23,8 @@ module.exports = {
 
         // qual será o valor da minha hora ?
         const valueHour = data["monthly-budget"] / monthlyTotalHours;
+
+        // const dark_mode = data["dark-mode"];
         
         const profile = await Profile.get();
 
@@ -30,7 +32,8 @@ module.exports = {
         await Profile.update({
             ...profile,
             ...req.body,
-            "value-hour": valueHour
+            "value-hour": valueHour,
+            "dark-mode": data["dark-mode"]
         });
 
         return res.redirect("/profile");

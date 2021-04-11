@@ -21,6 +21,7 @@ module.exports = {
         // run... Retorna toda a lista...
 
         const data = await db.get("SELECT * FROM profile");
+        const ActiveDarkMode = data.dark_mode == 1 ? true : false;
         db.close();
 
         return {
@@ -31,14 +32,16 @@ module.exports = {
             "hours-per-day": data.hours_per_day,
             "vacation-per-year": data.vacation_per_year,
             "value-hour": data.value_hour,
-            "free-hours" : FreeHours
+            "free-hours" : FreeHours,
+            "dark-mode": ActiveDarkMode
         };
     },
 
     async update(newData) {
 
         const db = await Database();
-        
+        const ActiveDarkMode = newData["dark-mode"] == "on" ? 1 : 0;
+
         db.run(`UPDATE profile SET 
             name = "${newData.name}",
             avatar = "${newData.avatar}",
@@ -46,7 +49,8 @@ module.exports = {
             days_per_week = ${newData["days-per-week"]},
             hours_per_day = ${newData["hours-per-day"]},
             vacation_per_year = ${newData["vacation-per-year"]},
-            value_hour = ${newData["value-hour"]}
+            value_hour = ${newData["value-hour"]},
+            dark_mode =  ${ActiveDarkMode}
         `);
 
         await db.close();
