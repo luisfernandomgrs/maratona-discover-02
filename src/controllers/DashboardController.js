@@ -22,13 +22,7 @@ module.exports = {
 
             statusCount[status] += 1;
             jobTotalHours += status === "progress" ? Number(job["daily-hours"]) : 0;
-/*
-                  <% if(job.status === "progress") { %> 
-                    <%= job.remaining %>   dias para a entrega
-                  <% } else { %>
-                    Prazo encerrado
-                  <% } %> 
-                  */
+
             if (status == "done") {
                 statusMessage = "Entregue";
             }
