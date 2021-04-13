@@ -11,24 +11,29 @@ module.exports = {
 
         // return data;
         return jobs.map(job => {
+            const finished = job.finished == 1 ? true : false;
+
             return {
                 id: job.id,
                 name: job.name,
                 "daily-hours": job.daily_hours,
                 "total-hours": job.total_hours,
-                created_at: job.created_at
+                created_at: job.created_at,
+                finished
             }            
         });
     },
 
     async update(newJob, jobId) {
-        // data = newJob;
+
         const db = await Database();
+        const finished = newJob.finished == "on" ? 1 : 0;
 
         await db.run(`UPDATE jobs SET 
             name = "${newJob.name}",
             daily_hours = ${newJob["daily-hours"]},
-            total_hours = ${newJob["total-hours"]} 
+            total_hours = ${newJob["total-hours"]},
+            finished = ${finished} 
             WHERE (ID=${jobId});
         `);
 

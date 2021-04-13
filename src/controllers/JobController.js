@@ -40,16 +40,16 @@ module.exports = {
     },
 
     async update (req, res) {
+
         const jobId = req.params.id;
-        
         const updatedJob = {
             name: req.body.name,
             "total-hours": req.body["total-hours"],
-            "daily-hours": req.body["daily-hours"]
+            "daily-hours": req.body["daily-hours"],
+            finished: req.body.finished
         }
 
         Job.update(updatedJob, jobId);
-
         res.redirect("/");
     },
 
