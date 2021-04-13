@@ -39,15 +39,25 @@
             <legend>Dados do Job</legend>
             <div class="separator light"></div>
 
-            <div class="input-wrapper">
-              <label for="name">Nome do Job</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name"
-                required
-                value="<%= job.name %> "
-              />
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label for="name">Nome do Job</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name"
+                  required
+                  value="<%= job.name %> "
+                />
+              </div>
+
+              <div class="input-wrapper">
+                <label for="finished">Trabalho encerrado:</label>
+                <input type="checkbox" name="finished" id="finished" <% if (job.finished) {%> checked <%}; %> >
+                <div id="job-finished-toggle">
+                  <i class="indicator"></i>
+                </div>
+              </div>
             </div>
 
             <div class="input-group">
@@ -129,8 +139,17 @@
         <form 
           method="post" 
           action="/job/delete/<%= job.id %>"
-          id="delete-job"></form>
-      </div>
+          id="delete-job">
+        </form>
+    </div>
     <!-- end modal-wrapper -->
+    <script>
+      const inputFinishedToggle = document.getElementById("finished");
+
+      if (inputFinishedToggle.checked) {
+        const toggleFinishedJob = document.getElementById("job-finished-toggle");
+        toggleFinishedJob.classList.toggle("finished");
+      }
+    </script>
   </body>
 </html>
